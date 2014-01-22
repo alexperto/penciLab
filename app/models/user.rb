@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
          :trackable,
          :validatable
 
+
+  validates :email, :presence   => true
+  validates :email, :uniqueness => true
+
 end

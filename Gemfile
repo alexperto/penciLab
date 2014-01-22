@@ -18,9 +18,10 @@ gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
-gem 'rspec-rails',  :group => [ :test, :development ]
-gem 'single_test',  :group => [ :test, :development ]
-gem 'evergreen',    :group => [ :test, :development ], :require => 'evergreen/rails'
+gem 'rspec-rails',        :group => [ :test, :development ]
+gem 'single_test',        :group => [ :test, :development ]
+gem 'factory_girl_rails', :group => [ :test, :development ] #we need this gem on dev for enabling generator to create factories
+gem 'evergreen',          :group => [ :test, :development ], :require => 'evergreen/rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -34,8 +35,8 @@ group :assets do
 end
 
 group :test do
-  gem 'factory_girl_rails'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'capybara-webkit'
+  gem 'faker'
 end
