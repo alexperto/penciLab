@@ -1,0 +1,22 @@
+.hero-unit.hero-unit-squared.hero-unit-grey-pattern.clearfix
+  .pull-left.span7
+    %h1 Change your password
+    %p You're just one step away from resetting your password.
+
+    %h2 I remember my old password
+    %p If you just remembered your old password and no longer want to change just click the button below to sign in:
+    = link_to "Continue", new_user_session_path, :class => "btn btn-primary btn-large"
+
+  .pull-right
+    .well
+      = simple_form_for resource, :as => resource_name, :url => user_password_path, :html => { :method => :put }, :defaults => { :input_html => { :class => :span3 } } do |f|
+        = f.error_notification
+        = f.input :reset_password_token, :as => :hidden
+        = f.full_error :reset_password_token
+
+        = f.input :password, :label => "New password", :required => true
+        = f.input :password_confirmation, :label => "Confirm your new password", :required => true
+
+        = f.button :submit, "Change my password", :class => 'btn-success'
+
+= render 'devise/shared/links'

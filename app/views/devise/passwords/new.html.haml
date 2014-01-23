@@ -1,0 +1,18 @@
+.hero-unit.hero-unit-squared.hero-unit-grey-pattern.clearfix
+  .pull-left.span7
+    %h1 Forgot your password?
+    %p We can send you password reset instructions to your inbox, just fillin this form.
+
+    %h2 Don't have an account yet?
+    %p Getting an account is quick and easy just click the button below:
+    = link_to 'Create a new account', new_user_registration_path, :class => 'btn btn-primary btn-large'
+
+
+  .pull-right
+    .well
+      = simple_form_for resource, :as => resource_name, :url => password_path( resource_name ), :defaults => { :input_html => { :class => :span3 } } do |f|
+        = f.error_notification
+        = f.input :email, :required => true
+        = f.button :submit, "Send me reset password instructions", :class => 'btn-success'
+
+= render 'devise/shared/links'

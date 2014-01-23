@@ -1,0 +1,16 @@
+.hero-unit.hero-unit-squared.hero-unit-blue.clearfix
+  .pull-left.span6
+    %h1 Sign Up
+
+    %p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat
+
+  .pull-right
+    .well
+      = simple_form_for resource, :as => resource_name, :url => registration_path( resource_name ), :defaults => { :input_html => { :class => :span3 } } do |f|
+        = f.input :email,     :required => true, :autofocus => true
+        = f.input :password,  :required => true
+        = f.input :password_confirmation, :required => true
+
+        = f.button :submit, "Sign Up", :class => 'btn btn-success'
+
+= render 'devise/shared/links'

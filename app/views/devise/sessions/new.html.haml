@@ -1,0 +1,16 @@
+.hero-unit.hero-unit-squared.hero-unit-blue.clearfix
+  .pull-left.span6= render 'devise/shared/welcome'
+
+  .pull-right
+    .well
+      = simple_form_for resource, :as => resource_name, :url => session_path( resource_name ), :defaults => { :input_html => { :class => :span3 } } do |f|
+        = f.input :email,     :required => false, :autofocus => true
+        = f.input :password,  :required => false
+
+        = f.label :remember_me do
+          = f.check_box :remember_me
+          = 'Remember me'
+
+        = f.button :submit, "Sign In"
+
+= render 'devise/shared/links'

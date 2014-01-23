@@ -1,0 +1,23 @@
+.page-header
+  %h1= "Edit #{ resource_name.to_s.humanize }"
+
+
+= simple_form_for resource, :as => resource_name, :url => user_registration_path, :html => { :method => :put }, :defaults => { :input_html => { :class => :span5 } } do |f|
+  .row
+    .span6
+      .form-inputs
+        = f.input :email,     :required => true, :autofocus => true, :disabled => true
+        = f.input :username,  :required => false
+        = f.input :password, :autocomplete => :off, :hint => "leave it blank if you don't want to change it", :required => false
+        = f.input :password_confirmation, :hint => "we need your current password to confirm your changes",   :required => true
+
+    .span6
+      %h2 Cancel my account
+      %p
+        Unhappy?
+        = link_to "Cancel my account", user_registration_path, :data => { :confirm => "Are you sure?" }, :method => :delete
+
+  .row
+    .span12
+      .form-actions
+        = f.button :submit, "Update", :class => 'btn-primary'

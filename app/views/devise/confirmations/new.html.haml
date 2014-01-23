@@ -1,0 +1,17 @@
+.hero-unit.hero-unit-squared.hero-unit-grey-pattern.clearfix
+  .pull-left.span7
+    %h1 Resend confirmation email
+    %p If you lost your confirmation email just fill in this form and we will resend them to you.
+
+    %h2 I have already confimed my account
+    %p You're ready to sign in, just click the button below:
+    = link_to "Continue to work on you'r application", new_user_session_path, :class => 'btn btn-primary btn-large'
+
+  .pull-right
+    .well
+      = simple_form_for resource, :as => resource_name, :url => confirmation_path( resource_name ), :defaults => { :input_html => { :class => :span3 } } do |f|
+        = f.error_notification
+        = f.input :email, :required => true
+        = f.button :submit, "Resend confirmation instructions", :class => 'btn-success'
+
+= render 'devise/shared/links'

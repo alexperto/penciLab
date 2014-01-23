@@ -1,0 +1,18 @@
+.hero-unit.hero-unit-squared.hero-unit-grey-pattern.clearfix
+  .pull-left.span7
+    %h1 Unlock instructions
+    %p If you need us to resend you the account unlock instructions just fill-in this form.
+
+    %h2 My account is not locked
+    %p You're ready to sign in, just click the button below:
+    = link_to "Continue to work on you're application", new_user_session_path, :class => 'btn btn-primary btn-large'
+
+  .pull-right
+    .well
+      = simple_form_for resource, :as => resource_name, :url => user_unlock_path, :defaults => { :input_html => { :class => :span3 } } do |f|
+        = f.error_notification
+        = f.input :email, :required => true
+        = f.button :submit, "Resend unlock instructions", :class => 'btn-success'
+
+
+= render 'devise/shared/links'
