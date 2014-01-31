@@ -23,8 +23,7 @@ gem 'rspec-rails',        :group => [ :test, :development ]
 gem 'single_test',        :group => [ :test, :development ]
 gem 'factory_girl_rails', :group => [ :test, :development ] #we need this gem on dev for enabling generator to create factories
 gem 'evergreen',          :group => [ :test, :development ], :require => 'evergreen/rails'
-gem "capistrano",         :group => :development
-gem 'capistrano-rvm',     :group => :development
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -41,4 +40,11 @@ group :test do
   gem 'database_cleaner'
   gem 'capybara-webkit'
   gem 'faker'
+end
+
+group :development do
+  gem "capistrano"
+  gem "capistrano-rails"
+  gem 'capistrano-rvm'
+  gem 'capistrano-bundler'
 end

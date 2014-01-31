@@ -9,7 +9,7 @@ set :ssh_options, { :forward_agent => true, :port => 16888, :user => 'alexperto'
 set :use_sudo, false
 # Default value for :format is :pretty
 # set :format, :pretty
-
+set :default_env, { rvm_bin_path: '~/.rvm/bin' }
 # Default value for :log_level is :debug
 # set :log_level, :debug
 
@@ -33,12 +33,13 @@ namespace :deploy do
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
-      # Your restart mechanism here, for example:
-      # execute :touch, release_path.join('tmp/restart.txt')
+      execute :touch, release_path.join('tmp/restart.txt')
     end
   end
 
   after :publishing, :restart
+  after :finishing, "deploy:cleanup"
+  before "deploy:assets:precompile", "deploy:link_db"
 
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
@@ -46,6 +47,12 @@ namespace :deploy do
       # within release_path do
       #   execute :rake, 'cache:clear'
       # end
+    end
+  end
+
+  task :link_db do
+    on roles(:all) do
+      execute "ln -s #{shared_path}/config/database.yml #{release_path}/config/database.yml"
     end
   end
 
