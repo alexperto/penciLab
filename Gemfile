@@ -4,8 +4,7 @@ gem 'rails', '4.0.2'
 
 gem 'mysql2'
 
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'acl9'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

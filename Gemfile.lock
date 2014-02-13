@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    acl9 (0.12.1)
+      rails (>= 2.3.12)
     actionmailer (4.0.2)
       actionpack (= 4.0.2)
       mail (~> 2.5.4)
@@ -225,6 +227,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acl9
   capistrano
   capistrano-bundler
   capistrano-rails
