@@ -31,4 +31,22 @@ describe User do
       user.errors.messages[:password].should include "is too short (minimum is 8 characters)"
     end
   end
+
+  describe :roles do
+    it 'should respond to has_role? method' do
+      user.has_role?('admin').should be_false
+    end
+
+    it 'can have valid roles' do
+      Role::VALID_ROLES.each do |r|
+        user.has_role! r
+        user.has_role?( r ).should be_true
+      end
+    end
+
+    it "can't have other roles" do
+      user.has_role!( :foo ).should be_false
+      user.has_role?( :foo ).should be_false
+    end
+  end
 end
