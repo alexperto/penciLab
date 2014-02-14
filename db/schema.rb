@@ -11,7 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140122034202) do
+ActiveRecord::Schema.define(version: 20140213052832) do
+
+  create_table "enrollments", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "role_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "enrollments", ["role_id"], name: "index_enrollments_on_role_id", using: :btree
+  add_index "enrollments", ["user_id", "role_id"], name: "index_enrollments_on_user_id_and_role_id", using: :btree
+  add_index "enrollments", ["user_id"], name: "index_enrollments_on_user_id", using: :btree
+
+  create_table "roles", force: true do |t|
+    t.string   "name",              limit: 40
+    t.string   "authorizable_type", limit: 40
+    t.string   "authorizable_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "roles", ["authorizable_id"], name: "index_roles_on_authorizable_id", using: :btree
+  add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
