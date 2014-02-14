@@ -5,6 +5,9 @@ gem 'rails', '4.0.2'
 gem 'mysql2'
 
 gem 'acl9'
+gem 'symbolize'
+gem 'date_validator'
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -42,6 +45,7 @@ group :test do
   gem 'database_cleaner'
   gem 'capybara-webkit'
   gem 'faker'
+  gem 'shoulda-matchers'
 end
 
 group :development do

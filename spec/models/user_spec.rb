@@ -3,6 +3,10 @@ require 'spec_helper'
 describe User do
   let(:user){ create :user }
 
+  context :associations do
+    it { should have_one :profile }
+  end
+
   describe :email do
     it 'should be unique' do
       user
