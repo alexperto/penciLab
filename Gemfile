@@ -45,6 +45,7 @@ group :test do
   gem 'database_cleaner'
   gem 'capybara-webkit'
   gem 'faker'
+  gem 'shoulda-matchers'
 end
 
 group :development do

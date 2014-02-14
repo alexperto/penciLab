@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe Person do
+  context :associations do
+    it { should have_one :profile }
+  end
+
   describe :name do
     it "can't be blank" do
       person = build :person, :name => nil

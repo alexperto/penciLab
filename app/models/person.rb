@@ -6,6 +6,7 @@ class Person < ActiveRecord::Base
 
   symbolize :gender, :in => GENDERS, :scopes => true, :methods => true
 
+  has_one :profile
 
   def full_name
     [ name, first_last_name, second_last_name ].join(' ').strip
