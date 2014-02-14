@@ -65,6 +65,8 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     database_cleaner (1.2.0)
+    date_validator (0.7.0)
+      activemodel (>= 3)
     devise (3.2.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -193,6 +195,9 @@ GEM
       net-scp (>= 1.1.2)
       net-ssh
       term-ansicolor
+    symbolize (4.4.1)
+      activemodel (>= 3.2, < 5)
+      activesupport (>= 3.2, < 5)
     term-ansicolor (1.2.2)
       tins (~> 0.8)
     therubyracer (0.12.0)
@@ -236,6 +241,7 @@ DEPENDENCIES
   capybara-webkit
   coffee-rails (~> 4.0.0)
   database_cleaner
+  date_validator
   devise
   evergreen
   factory_girl_rails
@@ -251,6 +257,7 @@ DEPENDENCIES
   sdoc
   simple_form
   single_test
+  symbolize
   therubyracer
   turbolinks
   twitter-bootstrap-rails
